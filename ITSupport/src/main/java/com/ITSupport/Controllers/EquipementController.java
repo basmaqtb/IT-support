@@ -2,6 +2,7 @@ package com.ITSupport.Controllers;
 
 import com.ITSupport.DTO.EquipementDTO;
 import com.ITSupport.Services.EquipementService;
+import com.ITSupport.Services.EquipementServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class EquipementController {
 
     @Autowired
-    private EquipementService equipementService;
+    private EquipementServiceImpl equipementService;
 
     // Get all équipements
     @GetMapping("/show")

@@ -1,7 +1,7 @@
-package com.ITSupport.Models;
+package com.ITSupport.Models.heritage;
 
+import com.ITSupport.Models.Ticket;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.NoArgsConstructor;

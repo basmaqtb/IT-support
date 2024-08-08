@@ -1,16 +1,11 @@
 package com.ITSupport.Services;
 
-import com.ITSupport.DTO.PanneDTO;
-import com.ITSupport.Models.Equipement;
 import com.ITSupport.Models.Panne;
 import com.ITSupport.Dao.PanneRepository;
-import com.ITSupport.mapper.PanneMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class PanneServiceImpl implements PanneService {
@@ -18,29 +13,30 @@ public class PanneServiceImpl implements PanneService {
     @Autowired
     private PanneRepository panneRepository;
 
-    @Autowired
-    private  PanneMapper panneMapper;
+//    @Autowired
+//    private  PanneMapper panneMapper;
 
     @Override
-    public List<PanneDTO> getAllPannes() {
-        return panneMapper.toDto(panneRepository.findAll());
+    public List<Panne> getAllPannes() {
+        return panneRepository.findAll();
     }
 
     @Override
-    public PanneDTO getPanneById(Long id) {
-        Optional<Panne> panne = panneRepository.findById(id);
-        return panne.map(panneMapper::toDto).orElse(null);
+    public Panne getPanneById(Long id) {
+
+        return null;
     }
 
     @Override
-    public PanneDTO createPanne(PanneDTO panneDTO) {
-        Panne panne = panneMapper.toEntity(panneDTO);
-        panne = panneRepository.save(panne);
-        return panneMapper.toDto(panne);
+    public Panne createPanne(Panne panneDTO) {
+//        Panne panne = panneMapper.toEntity(panneDTO);
+//        panne = panneRepository.save(panne);
+//        return panneMapper.toDto(panne);
+        return panneRepository.save(panneDTO);
     }
 
     @Override
-    public PanneDTO updatePanne(Long id, PanneDTO panneDTO) {
+    public Panne updatePanne(Long id, Panne panneDTO) {
 //        Optional<Panne> optionalPanne = panneRepository.findById(id);
 //        if (optionalPanne.isPresent()) {
 //            Panne panne = optionalPanne.get();
