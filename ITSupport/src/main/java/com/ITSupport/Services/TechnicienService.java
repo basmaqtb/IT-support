@@ -26,15 +26,15 @@ public class TechnicienService {
         return technicienRepository.save(technicien);
     }
 
-    public Technicien updateTechnicien(Long id, Technicien technicienDetails) {
-        Technicien technicien = technicienRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Technicien not found"));
-        technicien.setNom(technicienDetails.getNom());
-        technicien.setEmail(technicienDetails.getEmail());
-        technicien.setMotDePasse(technicienDetails.getMotDePasse());
-        technicien.setTickets(technicienDetails.getTickets());
-        return technicienRepository.save(technicien);
-    }
+//    public Technicien updateTechnicien(Long id, Technicien technicienDetails) {
+//        Technicien technicien = technicienRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Technicien not found"));
+//        technicien.setNom(technicienDetails.getNom());
+//        technicien.setEmail(technicienDetails.getEmail());
+//        technicien.setMotDePasse(technicienDetails.getMotDePasse());
+//        technicien.setTickets(technicienDetails.getTickets());
+//        return technicienRepository.save(technicien);
+//    }
 
     public void deleteTechnicien(Long id) {
         technicienRepository.deleteById(id);

@@ -32,15 +32,15 @@ public class TechnicienController {
         return technicienService.createTechnicien(technicien);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Technicien> updateTechnicien(@PathVariable Long id, @RequestBody Technicien technicienDetails) {
-        Optional<Technicien> technicien = technicienService.getTechnicienById(id);
-        if (technicien.isPresent()) {
-            return ResponseEntity.ok(technicienService.updateTechnicien(id, technicienDetails));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Technicien> updateTechnicien(@PathVariable Long id, @RequestBody Technicien technicienDetails) {
+//        Optional<Technicien> technicien = technicienService.getTechnicienById(id);
+//        if (technicien.isPresent()) {
+//            return ResponseEntity.ok(technicienService.updateTechnicien(id, technicienDetails));
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTechnicien(@PathVariable Long id) {

@@ -13,10 +13,10 @@ import java.util.Optional;
 @Service
 public class EquipementServiceImpl implements EquipementService {
 
-    @Autowired
+    @Autowired(required = true)
     private EquipementRepository equipementRepository;
 
-    @Autowired
+    @Autowired(required = true)
     private EquipementMapper equipementMapper;
 
     @Override
@@ -39,18 +39,10 @@ public class EquipementServiceImpl implements EquipementService {
 
     @Override
     public EquipementDTO updateEquipement(Long id, EquipementDTO equipementDTO) {
-        Optional<Equipement> optionalEquipement = equipementRepository.findById(id);
-        if (optionalEquipement.isPresent()) {
-            Equipement equipement = optionalEquipement.get();
-            equipement.setType(equipementDTO.getType());
-            equipement.setMarque(equipementDTO.getMarque());
-            equipement.setModele(equipementDTO.getModele());
-            equipement.setEtat(equipementDTO.getEtat());
-            Equipement updatedEquipement = equipementRepository.save(equipement);
-            return equipementMapper.toDto(updatedEquipement);
-        }
-        return null;
-    }
+        var equipment = equipementRepository.findById(id).orElse(null);
+        var updatedEquipment = equipementMapper.partialUpdate(equipementDTO, equipment);
+        return equipementMapper.toDto(equipementRepository.save(updatedEquipment));
+}
 
     @Override
     public void deleteEquipement(Long id) {

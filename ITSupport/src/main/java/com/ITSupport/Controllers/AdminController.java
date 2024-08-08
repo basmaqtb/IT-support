@@ -32,15 +32,15 @@ public class AdminController {
         return adminService.createAdmin(admin);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Admin> updateAdmin(@PathVariable Long id, @RequestBody Admin adminDetails) {
-        Optional<Admin> admin = adminService.getAdminById(id);
-        if (admin.isPresent()) {
-            return ResponseEntity.ok(adminService.updateAdmin(id, adminDetails));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Admin> updateAdmin(@PathVariable Long id, @RequestBody Admin adminDetails) {
+//        Optional<Admin> admin = adminService.getAdminById(id);
+//        if (admin.isPresent()) {
+//            return ResponseEntity.ok(adminService.updateAdmin(id, adminDetails));
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAdmin(@PathVariable Long id) {

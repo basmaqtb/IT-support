@@ -1,8 +1,10 @@
 package com.ITSupport.Services;
 
 import com.ITSupport.DTO.PanneDTO;
+import com.ITSupport.Models.Equipement;
 import com.ITSupport.Models.Panne;
 import com.ITSupport.Dao.PanneRepository;
+import com.ITSupport.mapper.PanneMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,37 +18,39 @@ public class PanneServiceImpl implements PanneService {
     @Autowired
     private PanneRepository panneRepository;
 
+    @Autowired
+    private  PanneMapper panneMapper;
+
     @Override
     public List<PanneDTO> getAllPannes() {
-        return panneRepository.findAll().stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+        return panneMapper.toDto(panneRepository.findAll());
     }
 
     @Override
     public PanneDTO getPanneById(Long id) {
         Optional<Panne> panne = panneRepository.findById(id);
-        return panne.map(this::convertToDTO).orElse(null);
+        return panne.map(panneMapper::toDto).orElse(null);
     }
 
     @Override
     public PanneDTO createPanne(PanneDTO panneDTO) {
-        Panne panne = convertToEntity(panneDTO);
-        Panne savedPanne = panneRepository.save(panne);
-        return convertToDTO(savedPanne);
+        Panne panne = panneMapper.toEntity(panneDTO);
+        panne = panneRepository.save(panne);
+        return panneMapper.toDto(panne);
     }
 
     @Override
     public PanneDTO updatePanne(Long id, PanneDTO panneDTO) {
-        Panne panne = panneRepository.findById(id).orElse(null);
-        if (panne != null) {
-            panne.setDescription(panneDTO.getDescription());
-            panne.setDateDetection(panneDTO.getDateDetection());
-            panne.setEtatPannet(panneDTO.getEtatPannet());
-            // Optionally update related entities like tickets and historiques
-            Panne updatedPanne = panneRepository.save(panne);
-            return convertToDTO(updatedPanne);
-        }
+//        Optional<Panne> optionalPanne = panneRepository.findById(id);
+//        if (optionalPanne.isPresent()) {
+//            Panne panne = optionalPanne.get();
+//            panne.setDescription(panneDTO.getDescription());
+//            panne.setDateDetection(panneDTO.getDateDetection());
+//            panne.setEtatPannet(panneDTO.getEtatPannet());
+//            // Optionally update related entities like tickets and historiques
+//            Panne updatedPanne = panneRepository.save(panne);
+//            return panneMapper.toDto(updatedPanne);
+//        }
         return null;
     }
 
@@ -55,24 +59,4 @@ public class PanneServiceImpl implements PanneService {
         panneRepository.deleteById(id);
     }
 
-    private PanneDTO convertToDTO(Panne panne) {
-        PanneDTO dto = new PanneDTO();
-        dto.setId(panne.getId());
-        dto.setDescription(panne.getDescription());
-        dto.setDateDetection(panne.getDateDetection());
-        dto.setEtatPannet(panne.getEtatPannet());
-        dto.setTicketIds(panne.getTickets().stream().map(ticket -> ticket.getId()).collect(Collectors.toList()));
-        dto.setHistoriquePanneIds(panne.getHistoriquepannes().stream().map(historique -> historique.getId()).collect(Collectors.toList()));
-        return dto;
-    }
-
-    private Panne convertToEntity(PanneDTO dto) {
-        Panne panne = new Panne();
-        panne.setId(dto.getId());
-        panne.setDescription(dto.getDescription());
-        panne.setDateDetection(dto.getDateDetection());
-        panne.setEtatPannet(dto.getEtatPannet());
-        // Optionally set related entities like tickets and historiques
-        return panne;
-    }
 }

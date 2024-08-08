@@ -33,15 +33,15 @@ public class UserController {
         return utilisateurService.createUtilisateur(utilisateur);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Utilisateur> updateUtilisateur(@PathVariable Long id, @RequestBody Utilisateur utilisateurDetails) {
-        Optional<Utilisateur> utilisateur = utilisateurService.getUtilisateurById(id);
-        if (utilisateur.isPresent()) {
-            return ResponseEntity.ok(utilisateurService.updateUtilisateur(id, utilisateurDetails));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Utilisateur> updateUtilisateur(@PathVariable Long id, @RequestBody Utilisateur utilisateurDetails) {
+//        Optional<Utilisateur> utilisateur = utilisateurService.getUtilisateurById(id);
+//        if (utilisateur.isPresent()) {
+//            return ResponseEntity.ok(utilisateurService.updateUtilisateur(id, utilisateurDetails));
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUtilisateur(@PathVariable Long id) {

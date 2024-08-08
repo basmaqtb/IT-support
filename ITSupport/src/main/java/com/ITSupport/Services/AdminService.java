@@ -26,14 +26,14 @@ public class AdminService {
         return adminRepository.save(admin);
     }
 
-    public Admin updateAdmin(Long id, Admin adminDetails) {
-        Admin admin = adminRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Admin not found"));
-        admin.setNom(adminDetails.getNom());
-        admin.setEmail(adminDetails.getEmail());
-        admin.setMotDePasse(adminDetails.getMotDePasse());
-        return adminRepository.save(admin);
-    }
+//    public Admin updateAdmin(Long id, Admin adminDetails) {
+//        Admin admin = adminRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Admin not found"));
+//        admin.setNom(adminDetails.getNom());
+//        admin.setEmail(adminDetails.getEmail());
+//        admin.setMotDePasse(adminDetails.getMotDePasse());
+//        return adminRepository.save(admin);
+//    }
 
     public void deleteAdmin(Long id) {
         adminRepository.deleteById(id);

@@ -1,20 +1,12 @@
 package com.ITSupport.Models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-@Getter
-@Setter
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Ticket implements Serializable {
     @Id
@@ -27,21 +19,14 @@ public class Ticket implements Serializable {
     private StatutTicket statut;
 
     @ManyToOne
-    @JoinColumn(name = "technicien_id")
     private Technicien technicien;
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "panne_id")
     private Panne panne;
 
     @ManyToOne
-    @JoinColumn(name = "equipement_id")
     private Equipement equipement;
-
-
-
 }

@@ -1,7 +1,7 @@
 package com.ITSupport.Models;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,11 +10,10 @@ import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+@Getter
+@Setter
 @Data
 @Builder
 @AllArgsConstructor

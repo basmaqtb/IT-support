@@ -26,14 +26,14 @@ public class UtilisateurService {
         return utilisateurRepository.save(utilisateur);
     }
 
-    public Utilisateur updateUtilisateur(Long id, Utilisateur utilisateurDetails) {
-        Utilisateur utilisateur = utilisateurRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Utilisateur not found"));
-        utilisateur.setNom(utilisateurDetails.getNom());
-        utilisateur.setEmail(utilisateurDetails.getEmail());
-        utilisateur.setMotDePasse(utilisateurDetails.getMotDePasse());
-        return utilisateurRepository.save(utilisateur);
-    }
+//    public Utilisateur updateUtilisateur(Long id, Utilisateur utilisateurDetails) {
+//        Utilisateur utilisateur = utilisateurRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Utilisateur not found"));
+//        utilisateur.setNom(utilisateurDetails.getNom());
+//        utilisateur.setEmail(utilisateurDetails.getEmail());
+//        utilisateur.setMotDePasse(utilisateurDetails.getMotDePasse());
+//        return utilisateurRepository.save(utilisateur);
+//    }
 
     public void deleteUtilisateur(Long id) {
         utilisateurRepository.deleteById(id);
