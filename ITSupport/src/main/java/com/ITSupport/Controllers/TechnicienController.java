@@ -1,6 +1,6 @@
 package com.ITSupport.Controllers;
 
-import com.ITSupport.Models.Technicien;
+import com.ITSupport.Models.heritage.Technicien;
 import com.ITSupport.Services.TechnicienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

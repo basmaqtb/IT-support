@@ -1,6 +1,6 @@
 package com.ITSupport.Services;
 
-import com.ITSupport.Models.Technicien;
+import com.ITSupport.Models.heritage.Technicien;
 import com.ITSupport.Dao.TechnicienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
