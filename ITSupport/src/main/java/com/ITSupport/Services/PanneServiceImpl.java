@@ -1,16 +1,15 @@
 package com.ITSupport.Services;
 
 import com.ITSupport.DTO.PanneDTO;
-import com.ITSupport.Models.Equipement;
 import com.ITSupport.Models.Panne;
 import com.ITSupport.Dao.PanneRepository;
+import com.ITSupport.Services.Interfaces.PanneService;
 import com.ITSupport.mapper.PanneMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class PanneServiceImpl implements PanneService {
@@ -41,17 +40,9 @@ public class PanneServiceImpl implements PanneService {
 
     @Override
     public PanneDTO updatePanne(Long id, PanneDTO panneDTO) {
-//        Optional<Panne> optionalPanne = panneRepository.findById(id);
-//        if (optionalPanne.isPresent()) {
-//            Panne panne = optionalPanne.get();
-//            panne.setDescription(panneDTO.getDescription());
-//            panne.setDateDetection(panneDTO.getDateDetection());
-//            panne.setEtatPannet(panneDTO.getEtatPannet());
-//            // Optionally update related entities like tickets and historiques
-//            Panne updatedPanne = panneRepository.save(panne);
-//            return panneMapper.toDto(updatedPanne);
-//        }
-        return null;
+        var panne = panneRepository.findById(id).orElse(null);
+        var updatedPanne = panneMapper.partialUpdate(panneDTO, panne);
+        return panneMapper.toDto(panneRepository.save(updatedPanne));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.ITSupport.Models;
+package com.ITSupport.Models.Enums;
 
 public enum Role {
     ADMIN,USER,TECHNICIEN

@@ -1,7 +1,7 @@
 package com.ITSupport.Services;
 
 import com.ITSupport.Dao.UserRepository;
-import com.ITSupport.Models.Utilisateur;
+import com.ITSupport.Models.heritage.Utilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

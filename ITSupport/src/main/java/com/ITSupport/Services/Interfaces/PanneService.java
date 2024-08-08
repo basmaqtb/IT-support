@@ -1,4 +1,4 @@
-package com.ITSupport.Services;
+package com.ITSupport.Services.Interfaces;
 
 import com.ITSupport.DTO.PanneDTO;
 

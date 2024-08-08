@@ -3,6 +3,7 @@ package com.ITSupport.Services;
 import com.ITSupport.DTO.EquipementDTO;
 import com.ITSupport.Models.Equipement;
 import com.ITSupport.Dao.EquipementRepository;
+import com.ITSupport.Services.Interfaces.EquipementService;
 import com.ITSupport.mapper.EquipementMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,15 +27,15 @@ public class EquipementServiceImpl implements EquipementService {
 
     @Override
     public EquipementDTO getEquipementById(Long id) {
-        Optional<Equipement> equipement = equipementRepository.findById(id);
-        return equipement.map(equipementMapper::toDto).orElse(null);
+        Equipement equipement = equipementRepository.findById(id).orElse(null);
+        return equipementMapper.toDto(equipement);
     }
 
     @Override
     public EquipementDTO createEquipement(EquipementDTO equipementDTO) {
         Equipement equipement = equipementMapper.toEntity(equipementDTO);
-        Equipement savedEquipement = equipementRepository.save(equipement);
-        return equipementMapper.toDto(savedEquipement);
+        equipement = equipementRepository.save(equipement);
+        return equipementMapper.toDto(equipement);
     }
 
     @Override

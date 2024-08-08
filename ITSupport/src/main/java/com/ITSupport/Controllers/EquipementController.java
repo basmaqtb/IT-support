@@ -1,7 +1,7 @@
 package com.ITSupport.Controllers;
 
 import com.ITSupport.DTO.EquipementDTO;
-import com.ITSupport.Services.EquipementService;
+import com.ITSupport.Services.Interfaces.EquipementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +16,12 @@ public class EquipementController {
     @Autowired
     private EquipementService equipementService;
 
-    // Get all équipements
     @GetMapping("/show")
     public ResponseEntity<List<EquipementDTO>> getAllEquipements() {
         List<EquipementDTO> equipements = equipementService.getAllEquipements();
         return ResponseEntity.ok(equipements);
     }
 
-    // Get an équipement by ID
     @GetMapping("/GetEquipement/{id}")
     public ResponseEntity<EquipementDTO> getEquipementById(@PathVariable Long id) {
         EquipementDTO equipement = equipementService.getEquipementById(id);
@@ -34,14 +32,13 @@ public class EquipementController {
         }
     }
 
-    // Create a new équipement
+
     @PostMapping("/Add")
     public ResponseEntity<EquipementDTO> createEquipement(@RequestBody EquipementDTO equipementDTO) {
         EquipementDTO createdEquipement = equipementService.createEquipement(equipementDTO);
         return ResponseEntity.status(201).body(createdEquipement);
     }
 
-    // Update an existing équipement
     @PutMapping("/Update/{id}")
     public ResponseEntity<EquipementDTO> updateEquipement(
             @PathVariable Long id,

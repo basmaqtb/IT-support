@@ -1,6 +1,6 @@
 package com.ITSupport.Services;
 
-import com.ITSupport.Models.Admin;
+import com.ITSupport.Models.heritage.Admin;
 import com.ITSupport.Dao.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

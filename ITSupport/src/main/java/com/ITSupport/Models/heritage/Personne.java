@@ -1,9 +1,8 @@
-package com.ITSupport.Models;
+package com.ITSupport.Models.heritage;
 
+import com.ITSupport.Models.Enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.io.Serializable;
 
 @Getter
 @Setter

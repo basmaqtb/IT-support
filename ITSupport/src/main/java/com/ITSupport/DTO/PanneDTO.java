@@ -1,6 +1,6 @@
 package com.ITSupport.DTO;
 
-import com.ITSupport.Models.EtatPanne;
+import com.ITSupport.Models.Enums.EtatPanne;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,5 +18,4 @@ public class PanneDTO implements Serializable {
     private Date dateDetection;
     private EtatPanne etatPannet;
     private List<Long> ticketIds;
-    private List<Long> historiquePanneIds;
 }

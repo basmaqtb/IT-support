@@ -1,6 +1,6 @@
 package com.ITSupport.DTO;
 
-import com.ITSupport.Models.EtatEquipement;
+import com.ITSupport.Models.Enums.EtatEquipement;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +16,6 @@ public class EquipementDTO implements Serializable {
     private String marque;
     private String modele;
     private EtatEquipement etat;
+
+
 }

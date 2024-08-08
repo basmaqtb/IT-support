@@ -1,6 +1,6 @@
 package com.ITSupport.Controllers;
 
-import com.ITSupport.Models.Utilisateur;
+import com.ITSupport.Models.heritage.Utilisateur;
 import com.ITSupport.Services.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

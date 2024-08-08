@@ -1,7 +1,7 @@
 package com.ITSupport.Controllers;
 
 import com.ITSupport.DTO.PanneDTO;
-import com.ITSupport.Services.PanneService;
+import com.ITSupport.Services.Interfaces.PanneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

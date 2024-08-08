@@ -1,5 +1,8 @@
 package com.ITSupport.Models;
 
+import com.ITSupport.Models.Enums.StatutTicket;
+import com.ITSupport.Models.heritage.Technicien;
+import com.ITSupport.Models.heritage.Utilisateur;
 import jakarta.persistence.*;
 import lombok.Data;
 

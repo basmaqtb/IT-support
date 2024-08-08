@@ -9,9 +9,8 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring")
 public interface EquipementMapper {
-    //EquipementMapper INSTANCE = Mappers.getMapper(EquipementMapper.class);
 
     EquipementDTO toDto(Equipement equipement);
     Equipement toEntity(EquipementDTO dto);
